@@ -18,6 +18,9 @@ import { SettingsComponent } from './settings/settings.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SettingsProfileComponent } from './settings-profile/settings-profile.component';
 import { SettingsContactComponent } from './settings-contact/settings-contact.component';
+import { TruncatePipe } from './truncate.pipe';
+import { MissionControlComponent } from './mission-control/mission-control.component';
+import { AstronautComponent } from './astronaut/astronaut.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,12 +30,15 @@ import { SettingsContactComponent } from './settings-contact/settings-contact.co
     SettingsComponent,
     PageNotFoundComponent,
     SettingsProfileComponent,
-    SettingsContactComponent
+    SettingsContactComponent,
+    TruncatePipe,
+    MissionControlComponent,
+    AstronautComponent
   ],
   imports: [
     CommonModule,
     BrowserModule,
-    HttpClientModule,
+    HttpClientModule, 
     AddressCardModule,
     InputButtonModule,
     CardListModule,
