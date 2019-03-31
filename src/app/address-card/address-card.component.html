@@ -1,0 +1,20 @@
+
+<h3>Users</h3>
+<button mat-button (click)="toggleCollapse()">
+  {{ btnText }}
+</button>
+
+<mat-list *ngIf="isNotCollapse">
+  <mat-list-item>
+    <mat-icon mat-list-icon>person</mat-icon>
+    <h4 mat-line>{{user.name}} | {{ user.title }}</h4>
+    <div mat-line>
+        <h4>Address: </h4>
+        <p class="mg-left">{{user.address}}</p>
+    </div>    
+    <div mat-line *ngIf="user.phone.length">
+        <h4>Phones: </h4>
+        <p class="mg-left" *ngFor="let phone of user.phone">{{ phone }}</p>
+    </div>    
+  </mat-list-item>
+</mat-list>

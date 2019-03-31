@@ -1,0 +1,21 @@
+<mat-grid-list cols=4 rowHeight="624">
+    <mat-grid-tile colspan=1 rowspan=1 *ngFor="let gitUser of gitUsers">
+        <mat-card class="example-card">
+            <mat-card-header>
+                <img mat-card-avatar [src]="gitUser.avatar_url" class="example-header-image">
+                <mat-card-title>{{ gitUser.name }}</mat-card-title>
+                <mat-card-subtitle>{{ gitUser.company }}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image [src]="gitUser.avatar_url" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+                <p>
+                {{ gitUser.bio }}
+                </p>
+            </mat-card-content>
+            <mat-card-actions>
+                <a [href]="gitUser.url" mat-button>PROFILE</a>
+                <a [href]="gitUser.repos_url" mat-button>REPOSITORIES</a>
+            </mat-card-actions>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>

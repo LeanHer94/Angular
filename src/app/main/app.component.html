@@ -1,0 +1,12 @@
+<!--<app-address-card [user]="defaultUser"></app-address-card>
+
+<app-input-button (submitted)="onSubmit($event)"></app-input-button>
+<app-card-list [gitUsers]="gitUsers"></app-card-list> -->
+
+<ul>
+    <li *ngFor="let route of routes">
+        <a [routerLink]="[route.url]">{{ route.linkName }}</a>
+    </li>
+</ul>
+
+<router-outlet></router-outlet>

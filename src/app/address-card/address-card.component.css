@@ -1,0 +1,12 @@
+h4, h5, h6, p {
+    margin: 0px;
+    padding: 0px;
+}
+
+.mg-left {
+    margin-left: 20px;
+}
+
+.float-left {
+    float: left;
+}
