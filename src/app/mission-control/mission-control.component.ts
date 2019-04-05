@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { MissionService } from '../mission.service';
+import { MissionScheduler } from '../mission.scheduler';
 
 @Component({
   selector: 'app-mission-control',
   templateUrl: './mission-control.component.html',
   styleUrls: ['./mission-control.component.css'],
-  providers: [MissionService]
+  providers: [MissionScheduler]
 })
 export class MissionControlComponent implements OnInit {
   astronauts = ['Lovell', 'Swigert', 'Haise'];
@@ -20,13 +20,13 @@ export class MissionControlComponent implements OnInit {
 
   history: string[] = [];
   
-  constructor(private missionService: MissionService) {
-    this.missionService.missionConfirmed$.subscribe(
+  constructor(private scheduler: MissionScheduler) {
+    this.scheduler.missionConfirmed$.subscribe(
       astronaut => {
         this.history.push(`${ astronaut } confirmed the mission.`);
       });
 
-    this.missionService.missionAnnounced$.subscribe(
+    this.scheduler.missionAnnounced$.subscribe(
       mission => {
         this.history.push(`Mission: ${ mission } announced.`);
 
@@ -38,7 +38,7 @@ export class MissionControlComponent implements OnInit {
   announce() {
     let mission = this.missions[this.nextMission++];
 
-    this.missionService.announceMission(mission);
+    this.scheduler.announceMission(mission);
   }
 
   ngOnInit() {

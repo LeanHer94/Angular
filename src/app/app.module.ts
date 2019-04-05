@@ -21,6 +21,9 @@ import { SettingsContactComponent } from './settings-contact/settings-contact.co
 import { TruncatePipe } from './truncate.pipe';
 import { MissionControlComponent } from './mission-control/mission-control.component';
 import { AstronautComponent } from './astronaut/astronaut.component';
+import { HighlightDirective } from './highlight.directive';
+import { MyFormsModule } from './forms/my-forms.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +36,8 @@ import { AstronautComponent } from './astronaut/astronaut.component';
     SettingsContactComponent,
     TruncatePipe,
     MissionControlComponent,
-    AstronautComponent
+    AstronautComponent,
+    HighlightDirective
   ],
   imports: [
     CommonModule,
@@ -42,7 +46,8 @@ import { AstronautComponent } from './astronaut/astronaut.component';
     AddressCardModule,
     InputButtonModule,
     CardListModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MyFormsModule
   ],
   providers: [ //it is used for lazy loading. It is not needed to get it works but it is okey to use lazy loading.
     UserService

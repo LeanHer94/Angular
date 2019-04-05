@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { MissionService } from '../mission.service';
+import { MissionScheduler } from '../mission.scheduler';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -16,8 +16,8 @@ export class AstronautComponent implements OnDestroy {
 
   subscription: Subscription
 
-  constructor(private missionService: MissionService) { 
-    this.subscription = this.missionService.missionAnnounced$.subscribe(
+  constructor(private scheduler: MissionScheduler) { 
+    this.subscription = this.scheduler.missionAnnounced$.subscribe(
       mission => {
         this.mission = mission;
         this.announced = true;
@@ -27,7 +27,7 @@ export class AstronautComponent implements OnDestroy {
 
   confirm(){
     this.confirmed = true;
-    this.missionService.confirmMission(this.astronaut);
+    this.scheduler.confirmMission(this.astronaut);
   }
 
   ngOnDestroy(): void {

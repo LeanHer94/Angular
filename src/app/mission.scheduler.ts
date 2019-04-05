@@ -4,7 +4,7 @@ import { Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class MissionService {
+export class MissionScheduler {
 
   private missionAnnouncedSource = new Subject<string>();
   private missionConfirmedSource = new Subject<string>();
@@ -21,6 +21,5 @@ export class MissionService {
   confirmMission(astronaut: string){
     this.missionConfirmedSource.next(astronaut);
   }
-
 }
  
