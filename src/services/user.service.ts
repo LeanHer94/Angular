@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from 'src/models/user';
 import { HttpClient } from '@angular/common/http';
+import { TestService } from './test.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class UserService {
   readonly url: string = "https://api.github.com/users/";
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private test: TestService) { }
 
   getUser() : User {
     return {
@@ -23,6 +24,10 @@ export class UserService {
   }
 
   getGitUser(username: string) {
-    return this.http.get(`${this.url}${username}`);      
+    return this.http.get<User>(`${this.url}${username}`);      
+  }
+
+  getTest(){
+    return this.test.getData();
   }
 }
